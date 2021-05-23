@@ -1,8 +1,6 @@
 package com.tupchiienko.cursor_homework17.service.impl;
 
-import com.tupchiienko.cursor_homework17.dao.AuthorDao;
-import com.tupchiienko.cursor_homework17.dao.BookDao;
-import com.tupchiienko.cursor_homework17.dao.UserDao;
+import com.tupchiienko.cursor_homework17.dao.Dao;
 import com.tupchiienko.cursor_homework17.dao.impl.AuthorDaoImpl;
 import com.tupchiienko.cursor_homework17.dao.impl.BookDaoImpl;
 import com.tupchiienko.cursor_homework17.dao.impl.UserDaoImpl;
@@ -14,9 +12,9 @@ import com.tupchiienko.cursor_homework17.service.LibraryService;
 import java.util.List;
 
 public class LibraryServiceImpl implements LibraryService {
-    private static final UserDao userDao = new UserDaoImpl();
-    private static final AuthorDao authorDao = new AuthorDaoImpl();
-    private static final BookDao bookDao = new BookDaoImpl();
+    private static final Dao<User> userDao = new UserDaoImpl();
+    private static final Dao<Author> authorDao = new AuthorDaoImpl();
+    private static final Dao<Book> bookDao = new BookDaoImpl();
 
     @Override
     public void saveUser(User user) {

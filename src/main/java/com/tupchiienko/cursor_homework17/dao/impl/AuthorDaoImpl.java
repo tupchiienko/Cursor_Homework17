@@ -1,12 +1,12 @@
 package com.tupchiienko.cursor_homework17.dao.impl;
 
-import com.tupchiienko.cursor_homework17.dao.AuthorDao;
+import com.tupchiienko.cursor_homework17.dao.Dao;
 import com.tupchiienko.cursor_homework17.model.Author;
 import com.tupchiienko.cursor_homework17.util.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class AuthorDaoImpl implements AuthorDao {
+public class AuthorDaoImpl implements Dao<Author> {
     @Override
     public void save(Author author) {
         var session = HibernateSessionFactoryUtil.getSessionFactory().openSession();

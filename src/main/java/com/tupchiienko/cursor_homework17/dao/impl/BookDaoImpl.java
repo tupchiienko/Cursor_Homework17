@@ -1,12 +1,12 @@
 package com.tupchiienko.cursor_homework17.dao.impl;
 
-import com.tupchiienko.cursor_homework17.dao.BookDao;
+import com.tupchiienko.cursor_homework17.dao.Dao;
 import com.tupchiienko.cursor_homework17.model.Book;
 import com.tupchiienko.cursor_homework17.util.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class BookDaoImpl implements BookDao {
+public class BookDaoImpl implements Dao<Book> {
     @Override
     public void save(Book book) {
         var session = HibernateSessionFactoryUtil.getSessionFactory().openSession();

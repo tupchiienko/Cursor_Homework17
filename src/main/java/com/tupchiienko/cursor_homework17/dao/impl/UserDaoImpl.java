@@ -1,10 +1,12 @@
 package com.tupchiienko.cursor_homework17.dao.impl;
 
-import com.tupchiienko.cursor_homework17.dao.UserDao;
+import com.tupchiienko.cursor_homework17.dao.Dao;
 import com.tupchiienko.cursor_homework17.model.User;
 import com.tupchiienko.cursor_homework17.util.HibernateSessionFactoryUtil;
 
-public class UserDaoImpl implements UserDao {
+import java.util.List;
+
+public class UserDaoImpl implements Dao<User> {
     @Override
     public void save(User user) {
         var session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -37,5 +39,11 @@ public class UserDaoImpl implements UserDao {
         session.delete(mergedUser);
         transaction.commit();
         session.close();
+    }
+
+    @Override
+    public List<User> findAll() {
+        return HibernateSessionFactoryUtil.getSessionFactory()
+                .openSession().createQuery("FROM User", User.class).list();
     }
 }
